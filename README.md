@@ -1,36 +1,93 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Ansala Gunawardena — Portfolio
+
+A modern, SEO-optimized portfolio website built with **Next.js 16**, **TypeScript**, **Tailwind CSS v4**, and **Framer Motion**.
+
+## Tech Stack
+
+- **Framework**: Next.js 16 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Animations**: Framer Motion
+- **Blog**: MDX with next-mdx-remote
+- **Contact Form**: Resend email API
+- **Icons**: Lucide React
+- **Theme**: Dark/Light mode via next-themes
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+# Install dependencies
+npm install
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Route | Description |
+|-------|-------------|
+| `/` | Home page with hero section |
+| `/about` | Bio, skills, education, volunteering |
+| `/projects` | Project showcase with cards |
+| `/experience` | Professional experience timeline |
+| `/blog` | Blog listing from MDX files |
+| `/blog/[slug]` | Individual blog post |
+| `/contact` | Contact form with email delivery |
 
-## Learn More
+## Adding Blog Posts
 
-To learn more about Next.js, take a look at the following resources:
+Create a new `.mdx` file in `src/blog/` with frontmatter:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```mdx
+---
+title: "Your Post Title"
+date: "2026-02-07"
+excerpt: "A brief description of the post."
+tags: ["Tag1", "Tag2"]
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Your markdown content here...
+```
 
-## Deploy on Vercel
+## Contact Form Setup
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Sign up at [resend.com](https://resend.com)
+2. Create an API key
+3. Add to `.env.local`:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```
+RESEND_API_KEY=re_xxxxxxxxxxxxx
+```
+
+Without the API key, form submissions are logged to the console in development.
+
+## Deployment
+
+Deploy to Vercel:
+
+```bash
+npx vercel
+```
+
+Or connect your GitHub repository to Vercel for automatic deployments.
+
+## Customization
+
+- **Content**: Edit files in `src/content/` (projects, experience, skills)
+- **Blog posts**: Add `.mdx` files to `src/blog/`
+- **Theme colors**: Modify CSS variables in `src/app/globals.css`
+- **Profile photo**: Replace the placeholder in `src/app/about/about-content.tsx`
+- **Social links**: Update URLs in `src/components/hero.tsx` and `src/components/footer.tsx`
+
+## License
+
+MIT
