@@ -1,7 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { GraduationCap, Heart, Code2, User } from "lucide-react";
+import Image from "next/image";
+import { GraduationCap, Heart, Code2 } from "lucide-react";
 import type { SkillCategory } from "@/content/skills";
 
 interface AboutContentProps {
@@ -46,12 +47,19 @@ export function AboutContent({ skillCategories }: AboutContentProps) {
       >
         {/* Photo placeholder */}
         <div className="flex justify-center md:justify-start">
-          <div className="relative h-64 w-64 overflow-hidden rounded-2xl border-2 border-border bg-muted flex items-center justify-center">
-            <User className="h-24 w-24 text-muted-foreground/30" />
-            <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
-            <span className="absolute bottom-4 text-xs text-muted-foreground">
-              Add your photo
-            </span>
+          <div className="relative h-64 w-64 overflow-hidden rounded-2xl border-2 border-border bg-muted">
+            <div className="absolute inset-0 z-0">
+              <Image
+                src="/images/ansala_dp.jpg"
+                alt="Ansala Gunawardena"
+                fill
+                className="object-cover"
+                sizes="256px"
+                priority
+                unoptimized
+              />
+            </div>
+            <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-background/80 to-transparent" />
           </div>
         </div>
 
