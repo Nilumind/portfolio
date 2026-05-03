@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { GraduationCap, Heart, Code2 } from "lucide-react";
 import type { SkillCategory } from "@/content/skills";
 
@@ -48,17 +47,16 @@ export function AboutContent({ skillCategories }: AboutContentProps) {
         {/* Photo placeholder */}
         <div className="flex justify-center md:justify-start">
           <div className="relative h-64 w-64 overflow-hidden rounded-2xl border-2 border-border bg-muted">
-            <div className="absolute inset-0 z-0">
-              <Image
-                src="/images/ansala_dp.jpg"
-                alt="Ansala Gunawardena"
-                fill
-                className="object-cover"
-                sizes="256px"
-                priority
-                unoptimized
-              />
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element -- next/image fails to decode this JPEG in dev */}
+            <img
+              src="/images/ansala_dp.jpg"
+              alt="Ansala Gunawardena"
+              width={256}
+              height={256}
+              className="absolute inset-0 z-0 h-full w-full object-cover"
+              decoding="async"
+              fetchPriority="high"
+            />
             <div className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-t from-background/80 to-transparent" />
           </div>
         </div>
