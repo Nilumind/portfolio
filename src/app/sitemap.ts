@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/mdx";
+import { siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://ansala.dev";
+  const baseUrl = siteUrl;
 
   const posts = getAllPosts();
   const blogEntries = posts.map((post) => ({
